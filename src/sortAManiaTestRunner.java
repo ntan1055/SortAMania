@@ -6,6 +6,7 @@ public class sortAManiaTestRunner
     {
         SortCompetition team2 = new Team2SortCompetition();
         int[] randIntArr = randIntArr(10000);
+        int[][] randTwoDimensionalArr = randTwoDimensionalArr(1000);
 
         System.out.println("Unsorted");
         printArr(randIntArr);
@@ -24,6 +25,11 @@ public class sortAManiaTestRunner
     {
         System.out.println(Arrays.toString(randIntArr));
     }
+    
+    private static void print2DArr(int[][] arr)
+    {
+        System.out.println(Arrays.deepToString(arr));
+    }
 
     private static int[] randIntArr(int count)
     {
@@ -31,6 +37,19 @@ public class sortAManiaTestRunner
         for(int i = 0; i < count; i++)
         {
             arr[i] = (int)(Math.random() * 10001);
+        }
+        return arr;
+    }
+    
+    private static int[][] randTwoDimensionalArr(int count)
+    {
+        int[][] arr = new int[count][count];
+        for(int row = 0; row < count; row++)
+        {
+            for(int col = 0; col < count; col++)
+            {
+                arr[row][col] = (int)(Math.random() * 10001);
+            }
         }
         return arr;
     }
