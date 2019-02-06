@@ -11,7 +11,7 @@ public class sortAManiaTestRunner
         printArr(randIntArr);
 
         long time = System.currentTimeMillis();
-        int median = Team2SortCompetition.challengeOne(randIntArr);
+        int median = team2.challengeOne(randIntArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
