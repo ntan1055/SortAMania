@@ -8,6 +8,21 @@ public class Team2SortCompetition extends SortCompetition
 
     @Override
     public int challengeTwo(String[] arr, String query) {
+        int num = 10000;
+        arr = new String[num];
+        while (num > 0)
+        {
+            int i = 0;
+            String s = "";
+            while (i < 5)
+            {
+                char c = (char)((Math.random()*26)+97);
+                s = s + c;
+                i++;
+            }
+            num--;
+            arr[num] = s;
+        }
         return 0;
     }
 
