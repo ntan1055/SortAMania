@@ -16,9 +16,19 @@ public class Team2SortCompetition extends SortCompetition
         return 0;
     }
 
-    @Override
-    public int challengeFour(int[][] arr) {
-        return 0;
+     @Override
+    public int challengeFour(int[][] arr)
+    {
+        int[] medianArr = new int[arr.length];
+        for(int row = 0; row < arr.length; row++)
+        {
+            for(int col = 0; col < arr.length; col++)
+            {
+                //sort sub arrays
+            }
+            //median finder here
+            //add median to the medianArr
+        }
     }
 
     @Override
