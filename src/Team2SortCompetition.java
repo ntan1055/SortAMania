@@ -51,6 +51,57 @@ public class Team2SortCompetition extends SortCompetition {
             quickSort(arr, pi + 1, high);
         }
     }
+    
+     @Override
+    public int challengeFour(int[][] arr)
+    {
+        boolean swap = true;
+        int[] medianArr = new int[arr.length];
+        while(swap)
+        {
+            swap = false;
+            for(int row = 0; row < arr.length; row++)
+            {
+                for(int col = 0; col < arr[row].length; col++)
+                {
+                    int i = col - 1;
+                    if(arr[row][col] < arr[row][i])
+                    {
+                        int j = arr[row][col];
+                        arr[row][col] = arr[row][i];
+                        arr[row][i] = j;
+                        swap = true;
+                    }
+                }
+            }
+        }
+
+        for(int row = 0; row < arr.length;row++)
+        {
+            int i = row;
+            int x = arr.length/2;
+            int y = arr.length/2 - 1;
+            medianArr[i] = (arr[row][x] + arr[row][y])/2;
+        }
+
+        boolean medianSwap = true;
+        while(medianSwap)
+        {
+            medianSwap = false;
+            for(int j = 1; j < arr.length; j++)
+            {
+                int i = j - 1;
+                if(medianArr[j] < medianArr[i])
+                {
+                    int x = medianArr[i];
+                    medianArr[i] = medianArr[j];
+                    medianArr[j] = x;
+                    medianSwap = true;
+                }
+            }
+        }
+        return (medianArr[medianArr.length / 2] + medianArr[(medianArr.length / 2) - 1])/2;
+    }
 
     @Override
     public int challengeFive(Comparable[] arr, Comparable query) {
