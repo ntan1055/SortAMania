@@ -108,7 +108,7 @@ public class Team2SortCompetition extends SortCompetition {
             swap = false;
             for(int row = 0; row < arr.length; row++)
             {
-                for(int col = 0; col < arr[row].length; col++)
+                for(int col = 1; col < arr[row].length; col++)
                 {
                     int i = col - 1;
                     if(arr[row][col] < arr[row][i])
