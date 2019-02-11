@@ -24,15 +24,18 @@ public class Team2SortCompetition extends SortCompetition {
     @Override
     public int challengeOne(int[] arr)
     {
+        boolean swap = true;
+        while(swap)
         {
-            int i=0;
-            int j=1;
+            swap = false;
+            for(int j = 1; j < arr.length; j++)
             {
-                for (i = 0; i < j-1; i++)
-                    // Last i elements are already in place
-                    for (j = 0; j < j-i-1; j++)
-                        if (arr[j] > arr[j+1])
-                            minimumIndex(arr, j);
+                int i = j - 1;
+                if(arr[j] < arr[i])
+                {
+                    swap(arr, i, j);
+                    swap = true;
+                }
             }
         }
         return median(arr);
@@ -137,7 +140,7 @@ public class Team2SortCompetition extends SortCompetition {
         return (medianArr[medianArr.length / 2] + medianArr[(medianArr.length / 2) - 1])/2;
     }
 
-    
+
 
     public static void merge(int[] a, int[] l, int[] r, int left, int right)
     {
