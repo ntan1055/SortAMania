@@ -6,6 +6,7 @@ public class sortAManiaTestRunner
     {
         SortCompetition team2 = new Team2SortCompetition();
         int[] randIntArr = randIntArr(10000);
+        int[] randIntArr2 = randIntArr(100000);
         int[][] randTwoDimensionalArr = randTwoDimensionalArr(1000);
 
         System.out.println("Unsorted");
