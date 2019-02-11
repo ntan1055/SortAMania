@@ -1,6 +1,4 @@
-java.util.Arrays;
 public class Team2SortCompetition extends SortCompetition {
-
 
     public static void swap(int list[], int i, int j)
     {
@@ -8,7 +6,6 @@ public class Team2SortCompetition extends SortCompetition {
         list[i]=list[j];
         list[j]=temp;
     }
-
 
     public static int minimumIndex(int list[], int ind)
     {
@@ -24,26 +21,21 @@ public class Team2SortCompetition extends SortCompetition {
         return minInd;
     }
 
-
     @Override
     public int challengeOne(int[] arr)
     {
         {
-                int i=0;
-                int j=1;
-                {
-                    for (i = 0; i < j-1; i++)
-
-                        // Last i elements are already in place
-                        for (j = 0; j < j-i-1; j++)
-                            if (arr[j] > arr[j+1])
-                                minimumIndex(arr, j);
-
-                }
+            int i=0;
+            int j=1;
+            {
+                for (i = 0; i < j-1; i++)
+                    // Last i elements are already in place
+                    for (j = 0; j < j-i-1; j++)
+                        if (arr[j] > arr[j+1])
+                            minimumIndex(arr, j);
             }
-            return 0;
-
-
+        }
+        return median(arr);
     }
 
     @Override
@@ -66,39 +58,35 @@ public class Team2SortCompetition extends SortCompetition {
 
     @Override
     public int challengeThree(int[] arr) {
-        return 0;
-        class BubbleSort {
-            public void bubbleSort(int[] Arr) {
-                int temp;
-                int j;
-                for (j = 0; j < Arr.length - 1; j++) {
-                    for (int i = 0; i < Arr.length - 1; i++) {
-                        if (Arr[i] > Arr[i + 1]) {
-                            temp = Arr[i + 1];
-                            Arr[i + 1] = Arr[i];
-                            Arr[i] = temp;
-                        }
-                    }
+        for (int i = 0; i < arr.length - 1; i++)
+        {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++)
+            {
+                if (arr[j] < arr[minIndex])
+                {
+                    minIndex = j;
                 }
             }
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
         }
-
-        public static int median(int[],arr[])
-        {
-            int middle = arr.length / 2;
-            int median=0;
-            if (arr.length%2==1)
-                return median=arr[middle];
-            else
-                return median=(arr[middle-1]+arr[middle])/2;
-            return median;
-        }
+        return median(arr);
     }
 
+    public static int median(int[] arr)
+    {
+        int middle = arr.length / 2;
+        int median;
+        if (arr.length%2==1)
+            median=arr[middle];
+        else
+            median=(arr[middle-1]+arr[middle])/2;
+        return median;
+    }
 
-
-    
-     @Override
+    @Override
     public int challengeFour(int[][] arr)
     {
         boolean swap = true;
@@ -172,28 +160,25 @@ public class Team2SortCompetition extends SortCompetition {
             merge(a, l, r, mid, n - mid);
         }
         return 0;
+    }
 
-        public static void merge(
-        int[] a, int[] l, int[] r, int left, int right) {
-
-            int i = 0, j = 0, k = 0;
-            while (i < left && j < right) {
-                if (l[i] <= r[j]) {
-                    a[k++] = l[i++];
-                }
-                else {
-                    a[k++] = r[j++];
-                }
-            }
-            while (i < left) {
+    public static void merge(int[] a, int[] l, int[] r, int left, int right)
+    {
+        int i = 0, j = 0, k = 0;
+        while (i < left && j < right) {
+            if (l[i] <= r[j]) {
                 a[k++] = l[i++];
             }
-            while (j < right) {
+            else {
                 a[k++] = r[j++];
             }
         }
-
-
+        while (i < left) {
+            a[k++] = l[i++];
+        }
+        while (j < right) {
+            a[k++] = r[j++];
+        }
     }
 
     @Override
