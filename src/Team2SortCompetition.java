@@ -42,7 +42,8 @@ public class Team2SortCompetition extends SortCompetition {
     }
 
     @Override
-    public int challengeTwo(String[] arr, String query) {
+    public int challengeTwo(String[] arr, String query)
+    {
         int num = 10000;
         arr = new String[num];
         while (num > 0) {
@@ -56,11 +57,12 @@ public class Team2SortCompetition extends SortCompetition {
             num--;
             arr[num] = s;
         }
-        return true;
+        return 0;
     }
 
     @Override
-    public int challengeThree(int[] arr) {
+    public int challengeThree(int[] arr)
+    {
         for (int i = 0; i < arr.length - 1; i++)
         {
             int minIndex = i;
@@ -138,6 +140,31 @@ public class Team2SortCompetition extends SortCompetition {
             }
         }
         return (medianArr[medianArr.length / 2] + medianArr[(medianArr.length / 2) - 1])/2;
+    }
+
+    @Override
+    public int challengeFive(Comparable[] arr, Comparable query) {
+
+        public static void mergeSort(int[] a, int n) {
+            if (n < 2) {
+                return;
+            }
+            int mid = n / 2;
+            int[] l = new int[mid];
+            int[] r = new int[n - mid];
+
+            for (int i = 0; i < mid; i++) {
+                l[i] = a[i];
+            }
+            for (int i = mid; i < n; i++) {
+                r[i - mid] = a[i];
+            }
+            mergeSort(l, mid);
+            mergeSort(r, n - mid);
+
+            merge(a, l, r, mid, n - mid);
+        }
+        return 0;
     }
 
 
