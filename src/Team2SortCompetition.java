@@ -61,7 +61,7 @@ public class Team2SortCompetition extends SortCompetition {
             num--;
             arr[num] = s;
         }
-        return 0;
+        return true;
     }
 
     @Override
